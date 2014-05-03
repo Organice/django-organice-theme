@@ -17,12 +17,12 @@ help:
 
 assets: #bootstrap
 	@echo "Building assets..."
-	cd organice/static && compass clean && compass compile
-	cd organice/static/js && \
+	cd */static && compass clean && compass compile
+	cd */static/js && \
 	BOOTSTRAP_JS_DIR=$(shell find $(shell gem environment gemdir)/gems/ \
 		-name bootstrap-sass-*)/vendor/assets/javascripts/bootstrap/ && \
 	uglifyjs -o scripts.js \
-		{jquery,navigation,profile}.js \
+		{jquery,profile}.js \
 		$$BOOTSTRAP_JS_DIR/{affix,alert,carousel,dropdown,scrollspy}.js
 
 bootstrap:
