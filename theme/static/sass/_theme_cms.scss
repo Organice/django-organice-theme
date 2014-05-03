@@ -1,0 +1,86 @@
+/*
+ * django CMS output
+ */
+
+.plugin_picture {
+	&.align-left,
+	&.align-right,
+	&.align-center {
+		img {
+			display: block;
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+	}
+
+	&.align-left {
+		img {
+			float: left;
+			margin-left: 0 !important;
+		}
+	}
+
+	&.align-right {
+		img {
+			float: right;
+			margin-right: 0 !important;
+		}
+	}
+}
+
+.plugin_file {
+	display: inline;
+}
+
+.plugin_googlemap {
+	margin-bottom: 0.4em;
+}
+
+/*
+ * cmsplugin-contact
+ */
+
+form {
+	label {
+		&.contact_field {
+			display: block;
+
+			+ input,
+			+ textarea {
+				width: 100%;
+			}
+		}
+	}
+
+	.error_msg {
+		color: red;
+	}
+}
+
+/*
+ * Issuu integration (hide unnecessary text)
+ */
+
+.issuuembed {
+	width: 100% !important;
+	height: auto !important;
+	position: relative;
+	padding-bottom: 62.25%;
+	overflow: hidden;
+
+	object {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.issuuembed.issuu-isrendered span {
+	display: none;
+}
+
+#issuu .archive form + p {
+	margin-top: 0.75em;
+}
