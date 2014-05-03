@@ -4,6 +4,7 @@
 .sass-cache/
 /build/
 /dist/
+/*.egg-info/
 
 # Django and Python
 /static/
