@@ -2,7 +2,7 @@ include LICENSE
 include README.rst
 recursive-include */static *
 recursive-include */templates *
-prune */static/config.rb
-prune */static/js/jquery.js
-prune */static/js/profile.js
-prune */static/sass
+exclude */static/config.rb
+exclude */static/js/jquery.js
+exclude */static/js/profile.js
+recursive-exclude */static/sass *
