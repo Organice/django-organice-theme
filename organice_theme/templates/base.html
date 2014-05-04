@@ -1,18 +1,15 @@
 {% extends "skeleton.html" %}
-{% load staticfiles cms_tags menu_tags sekizai_tags zinnia_tags %}
+{% load staticfiles cms_tags menu_tags zinnia_tags %}
 
-{% block sekizai %}
-{% addtoblock "css" strip %}
-	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
+{% block css %}	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
 	<script src="{% static 'js/ie/html5shiv-printshiv.js' %}"></script>
 	<script src="{% static 'js/ie/respond.min.js' %}"></script>
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-{% endaddtoblock %}
-{% addtoblock "js" strip %}
-	<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
-{% endaddtoblock %}
-{% endblock sekizai %}
+	<link rel="stylesheet" type="text/css" href="{% block theme_css %}{% static 'css/styles.css' %}{% endblock %}">
+{% endblock css %}
+{% block js %}
+	<script type="text/javascript" src="{% block theme_js %}{% static 'js/scripts.js' %}{% endblock %}"></script>
+{% endblock js %}
 
 {% block title_tag %}{% block title %}{% page_attribute page_title %}{% endblock title %} | {{ current_site.name }}{% endblock title_tag %}
 

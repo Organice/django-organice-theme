@@ -10,7 +10,8 @@
 	<link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
 	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'apple-touch-icon-72x72.png' %}">
 	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'apple-touch-icon-114x114.png' %}">
-	{% endblock favicon %}{% endblock head %}{% render_block "css" %}</head>
+	{% endblock favicon %}{% block css %}
+	{% endblock css %}{% endblock head %}{% render_block "css" %}</head>
 <body>{% block body %}
 	<div id="header" class="{% block header_class %}{% endblock %}">{% block header %}{% endblock %}</div>
 	<div id="container" class="{% block container_class %}{% endblock %}">{% block container %}
@@ -22,6 +23,6 @@
 		{% endblock main %}</div>
 	{% endblock container %}</div>
 	<div id="footer" class="{% block footer_class %}{% endblock %}">{% block footer %}{% endblock %}</div>
-{% endblock body %}
-{% render_block "js" %}</body>
+{% endblock body %}{% block js %}
+{% endblock js %}{% render_block "js" %}</body>
 </html>
