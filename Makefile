@@ -43,6 +43,14 @@ bumpver:
 clean:
 	rm -rf build/ dist/ *.egg-info/ */static/.sass-cache
 
+install: setuptools
+	python setup.py install
+
+uninstall:
+	@PKG_NAME=$${PWD##*/} && pip freeze | sed 's/==.*$$//' | grep $$PKG_NAME &> /dev/null \
+		&& pip uninstall -y $$PKG_NAME \
+		|| echo "Package $$PKG_NAME not installed."
+
 release: setuptools clean
 	python setup.py sdist upload
 
