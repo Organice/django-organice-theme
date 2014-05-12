@@ -12,3 +12,17 @@ blockquote {
 		content: '\201D';
 	}
 }
+
+/*
+ * Bootstrap corrections
+ */
+
+.breadcrumb {
+	color: $breadcrumb-color;
+
+	> li {
+		+ li:before {
+			content: "#{$breadcrumb-separator}"; // remove Bootstrap's trailing Unicode space
+		}
+	}
+}
