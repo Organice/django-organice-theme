@@ -4,11 +4,11 @@
   {% block entry-header %}
   <div class="entry-header">
     {% block entry-title %}
-    <h1 class="entry-title">
+    <h2 class="entry-title">
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
         {{ object.title }}
       </a>
-    </h1>
+    </h2>
     {% endblock %}
   </div>
   {% endblock %}
@@ -39,7 +39,7 @@
     {% if continue_reading %}
     <p class="continue-reading">
       <a href="{{ object.get_absolute_url }}"
-         title="{% blocktrans with object=object.title %}Weiter lesen: {{ object }}{% endblocktrans %}"
+         title="{% blocktrans with object=object.title %}Continue reading {{ object }}{% endblocktrans %}"
          rel="bookmark">
         {% trans "Continue reading" %}
       </a>
