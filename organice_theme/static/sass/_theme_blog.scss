@@ -1,0 +1,56 @@
+/*
+ * zinnia-blog
+ */
+
+#calendar {
+	text-align: center;
+	padding: 10px 0px;
+
+	caption {
+		padding: 4px;
+	}
+
+	table {
+		width: 100%;
+		border-spacing: 1px;
+
+		td {
+			text-align: center;
+			vertical-align: middle;
+
+			&.entry {
+				border: 1px solid $brand-primary;
+			}
+		}
+	}
+}
+
+#widget-categories ul {
+	list-style: none;
+	padding-left: 0.2em;
+}
+
+.slider .entry.date {
+	margin: 1em 0 -0.8em 0;
+}
+
+ul {
+	&.paginator {
+		list-style: none;
+		padding-left: 1em;
+
+		.index {
+			padding-right: 0.7em;
+		}
+
+		li {
+			display: inline;
+			margin: 0 1em;
+
+			a {
+				border: 1px solid;
+				padding: 0 0.5em;
+			}
+		}
+	}
+}
