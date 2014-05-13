@@ -12,6 +12,8 @@ help:
 	@echo "  bootstrap     to update Sass, Compass, UglifyJS, and bootstrap-sass on your (Ubuntu) system"
 	@echo "  bumpver       to bump the version number, commit and tag for releasing"
 	@echo "  clean         to remove build files and folders"
+	@echo "  install       to install this project including its dependencies"
+	@echo "  uninstall     to uninstall this package using pip"
 	@echo "  release       to package a new release, and upload it to pypi.org"
 	@echo "  setuptools    to install setuptools or repair a broken pip installation"
 
