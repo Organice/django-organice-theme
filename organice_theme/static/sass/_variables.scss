@@ -3,8 +3,19 @@
 // - For complete list of Bootstrap variables and documentation see:
 // https://github.com/twbs/bootstrap-sass/blob/master/vendor/assets/stylesheets/bootstrap/_variables.scss
 
-// Bootstrap
-$brand-primary: #008195;
-$breadcrumb-color: #5e5e5e;
-
 // theme only
+//- Organice blue colors -
+$organice-color-darkblue: rgb(36, 45, 74);
+$organice-color-blue: rgb(0, 84, 166);
+$organice-color-lightblue: rgb(55, 171, 244);
+//- Organice red colors -
+$organice-color-darkred: rgb(211, 15, 35);
+$organice-color-red: rgb(255, 31, 61);
+$organice-color-lightred: rgb(255, 39, 74);
+
+// Bootstrap
+$brand-primary: $organice-color-blue;
+$breadcrumb-color: $organice-color-darkblue;
+$text-color: $organice-color-darkblue !default;
+$link-color: $organice-color-blue !default;
+$link-hover-color: $organice-color-lightblue !default;
