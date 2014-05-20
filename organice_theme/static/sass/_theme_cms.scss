@@ -7,6 +7,13 @@
 	list-style-type: none;
 }
 
+#content {
+	a:focus,
+	a:hover {
+		text-decoration: underline;
+	}
+}
+
 /*
  * django CMS output
  */

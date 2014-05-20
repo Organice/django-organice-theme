@@ -17,6 +17,11 @@ blockquote {
  * Bootstrap corrections
  */
 
+a:focus,
+a:hover {
+	text-decoration: none;
+}
+
 .breadcrumb {
 	color: $breadcrumb-color;
 
