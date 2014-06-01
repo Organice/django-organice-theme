@@ -1,5 +1,9 @@
 {% extends "skeleton.html" %}
-{% load staticfiles cms_tags menu_tags zinnia_tags %}
+{% load staticfiles cms_tags menu_tags zinnia_tags analytical %}
+
+{% block head %}
+{% analytical_head_top %}{{ block.super }}{% analytical_head_bottom %}
+{% endblock head %}
 
 {% block css %}	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
 	<script src="{% static 'js/ie/html5shiv-printshiv.js' %}"></script>
@@ -22,9 +26,9 @@
 {% block sidebar_class %}col-xs-12 col-sm-8 col-md-3 col-lg-2 col-sm-push-4 col-md-push-0{% endblock %}
 {% block footer_class %}row{% endblock %}
 
-{% block body %}{% spaceless %}
+{% block body %}{% spaceless %}{% analytical_body_top %}
 	{% cms_toolbar %}
-{% endspaceless %}{{ block.super }}{% endblock body %}
+{% endspaceless %}{{ block.super }}{% analytical_body_bottom %}{% endblock body %}
 
 {% block menu %}{% spaceless %}
 	{% include 'profile_dropdown.html' %}
