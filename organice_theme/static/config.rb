@@ -1,6 +1,6 @@
 require 'bootstrap-sass'
 # Additional compass plugins
-
+require 'sass-css-importer'
 # Project directories
 http_path = "/static/"
 css_dir = "css"

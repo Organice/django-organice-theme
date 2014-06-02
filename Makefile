@@ -24,14 +24,16 @@ assets: #bootstrap
 	BOOTSTRAP_JS_DIR=$(shell find $(shell gem environment gemdir)/gems/ \
 		-name bootstrap-sass-*)/vendor/assets/javascripts/bootstrap/ && \
 	uglifyjs -o scripts.js \
-		{jquery,profile}.js \
+		{jquery,jquery-ui,profile}.js \
+		../todo/js/jquery.tablednd_0_5.js \
 		$$BOOTSTRAP_JS_DIR/{affix,alert,carousel,dropdown,scrollspy}.js
 
 bootstrap:
 	@echo "Updating your system-wide bootstrap-sass installation... (may require your password)"
 	gem list &> /dev/null || sudo apt-get install -y ruby
-	yes | sudo gem uninstall sass compass bootstrap-sass
+	yes | sudo gem uninstall sass sass-css-importer compass bootstrap-sass
 	sudo gem install compass bootstrap-sass --no-rdoc --no-ri
+	sudo gem install --pre sass-css-importer --no-rdoc --no-ri
 	@gem list
 	@echo
 	@echo "Updating uglify-js v2 for Bootstrap JavaScript minification... (may require your password)"
