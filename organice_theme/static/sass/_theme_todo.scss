@@ -2,6 +2,9 @@
  * django-todo
  */
 
+// NOTE: Relative paths must go out of project and return back again!
+// NOTE: This is necessary in order to make derived themes work with Compass.
+
 @import "CSS:../../../../django-organice-theme/organice_theme/static/css/jquery-ui";
 @import "CSS:../../../../django-organice-theme/organice_theme/static/todo/css/styles";
 @import "CSS:../../../../django-organice-theme/organice_theme/static/todo/css/ui.datepicker";
