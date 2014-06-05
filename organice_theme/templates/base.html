@@ -1,9 +1,7 @@
 {% extends "skeleton.html" %}
 {% load staticfiles cms_tags menu_tags zinnia_tags analytical %}
 
-{% block head %}
-{% analytical_head_top %}{{ block.super }}{% analytical_head_bottom %}
-{% endblock head %}
+{% block head %}{% analytical_head_top %}{{ block.super }}{% analytical_head_bottom %}{% endblock head %}
 
 {% block css %}	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
 	<script src="{% static 'js/ie/html5shiv-printshiv.js' %}"></script>
