@@ -36,7 +36,7 @@ ROOT_PATH = os.path.dirname(__file__)
 
 setup(
     name='django-organice-theme',
-    version='0.2',
+    version='0.3.dev',
     author='Peter Bitter',
     author_email='django@bittner.it',
     url='http://organice.io/themes/',

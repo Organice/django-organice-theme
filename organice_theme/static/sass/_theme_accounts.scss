@@ -1,0 +1,37 @@
+/*
+ * local accounts (email) and social accounts
+ */
+
+.socialaccount_ballot {
+
+	.socialaccount_providers,
+	.login {
+		padding: 0 0.5em;
+	}
+
+	.socialaccount_providers {
+		float: left;
+		list-style: none;
+	}
+
+	.login-or {
+		float: left;
+		padding: 6em 1em;
+		text-align: center;
+
+		&:before,
+		&:after {
+			color: $brand-primary-lighter;
+		}
+		&:before {
+			content: "\2014  ";
+		}
+		&:after {
+			content: "  \2014";
+		}
+	}
+
+	.login {
+		float: right;
+	}
+}
