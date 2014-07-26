@@ -1,0 +1,43 @@
+{% extends "allauth:account/signup.html" %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Sign Up" %}</h1>
+
+{% if socialaccount.providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign up with one
+of your existing third party accounts, or create an account using your
+email address and a password.{% endblocktrans %}</p>
+{% endif %}
+
+<div class="allauth_login_form">
+
+{% if socialaccount.providers %}
+	<ul class="socialaccount_providers">
+		{% include "socialaccount/snippets/provider_list.html" with process="login" %}
+	</ul>
+
+	<div class="login-or">{% trans 'or' %}</div>
+
+	{% include "socialaccount/snippets/login_extra.html" %}
+{% endif %}
+
+	<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+		{% csrf_token %}
+		{{ form.as_p }}
+		{% if redirect_field_value %}
+		<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+		{% endif %}
+		<button type="submit">{% trans "Sign Up" %} &raquo;</button>
+	</form>
+
+</div>{# allauth_login_form #}
+
+<p>{% blocktrans %}Already have an account? Then please
+<a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+{% endblock %}

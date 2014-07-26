@@ -4,6 +4,7 @@
 
 .allauth_login_form {
 	@include make-row();
+	margin: 1em 0;
 
 	.socialaccount_providers {
 		@include make-xs-column(12);
@@ -33,7 +34,8 @@
 		}
 	}
 
-	form.login {
+	form.login,
+	form.signup {
 		@include make-xs-column(12);
 		@include make-md-column(6);
 
