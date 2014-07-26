@@ -39,8 +39,9 @@
 		@include make-xs-column(12);
 		@include make-md-column(6);
 
-		input[type=text],
-		input[type=password] {
+		input[type=email],
+		input[type=password],
+		input[type=text] {
 			width: 100%;
 		}
 	}
