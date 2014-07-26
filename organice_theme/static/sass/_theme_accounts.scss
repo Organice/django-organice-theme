@@ -2,22 +2,24 @@
  * local accounts (email) and social accounts
  */
 
-.socialaccount_ballot {
-
-	.socialaccount_providers,
-	.login {
-		padding: 0 0.5em;
-	}
+.allauth_login_form {
+	@include make-row();
 
 	.socialaccount_providers {
-		float: left;
+		@include make-xs-column(12);
+		@include make-sm-column(8);
+		@include make-md-column(4);
 		list-style: none;
+		text-align: center;
 	}
 
 	.login-or {
-		float: left;
-		padding: 6em 1em;
+		@include make-xs-column(12);
+		@include make-sm-column(4);
+		@include make-md-column(2);
 		text-align: center;
+		vertical-align: middle;
+		padding: 1.5em 0;
 
 		&:before,
 		&:after {
@@ -31,7 +33,13 @@
 		}
 	}
 
-	.login {
-		float: right;
+	form.login {
+		@include make-xs-column(12);
+		@include make-md-column(6);
+
+		input[type=text],
+		input[type=password] {
+			width: 100%;
+		}
 	}
 }
