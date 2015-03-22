@@ -10,7 +10,11 @@
 	<ul class="dropdown-menu" role="menu" aria-labelledby="profile-label">
 		<li><a href="{% if user.get_profile_url %}{{ user.get_profile_url }}{% else %}{% url 'admin:index' %}auth/user/{{ user.id }}{% endif %}"
 			   title="{{ user }} ({% firstof user.get_provider 'system' %})"
-				><span class="glyphicon glyphicon-user"></span>  {% trans "User Profile" %}</a></li>
+				><span class="glyphicon glyphicon-user"></span> {% trans "User Profile" %}</a></li>
+		<li><a href="{% url 'account_email' %}"
+				><span class="glyphicon glyphicon-envelope"></span> {% trans "E-Mail Addresses" %}</a></li>
+		<li><a href="{% url 'socialaccount_connections' %}"
+				><span class="glyphicon glyphicon-cloud"></span> {% trans "Social Connections" %}</a></li>
 		<li><a href="{% url 'account_logout' %}?next={{ request.path }}" class="logout"
 				><span class="glyphicon glyphicon-off"></span> {% trans "Log out" %}</a></li>
 	</ul>
