@@ -40,7 +40,7 @@ setup(
     author='Peter Bitter',
     author_email='django@bittner.it',
     url='http://organice.io/themes/',
-    license='Apache License, Version 2.0',
+    license='Apache License 2.0',
 
     description='The mother theme of all themes for django-organice.',
     long_description=open(os.path.join(ROOT_PATH, 'README.rst')).read(),

@@ -2,7 +2,7 @@
 django Organice Theme
 =====================
 
-|latest-version|
+|latest-version| |downloads| |license|
 
 This is the mother theme of all themes for `django-organice`_.  A theme is a simple Django app, which contains
 a collection of static files (assets) and templates.  A ``Makefile`` for asset management is also included.
@@ -54,9 +54,15 @@ Getting Help
 - Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you choose)
 
 
-.. |latest-version| image:: https://pypip.in/v/django-organice-theme/badge.png
+.. |latest-version| image:: https://img.shields.io/pypi/v/django-organice-theme.svg
    :alt: Latest version on PyPI
-   :target: https://pypi.python.org/pypi/django-organice-theme/
+   :target: https://pypi.python.org/pypi/django-organice-theme
+.. |downloads| image:: https://img.shields.io/pypi/dm/django-organice-theme.svg
+   :alt: Monthly downloads from PyPI
+   :target: https://pypi.python.org/pypi/django-organice-theme
+.. |license| image:: https://img.shields.io/pypi/l/django-organice-theme.svg
+   :alt: Software license
+   :target: https://www.apache.org/licenses/LICENSE-2.0.html
 .. _`django-organice`: http://organice.io/
 .. _`bootstrap-sass`: https://github.com/twbs/bootstrap-sass
 .. _`Compass`: http://compass-style.org/
