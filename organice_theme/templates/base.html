@@ -24,9 +24,7 @@
 {% block sidebar_class %}col-xs-12 col-sm-8 col-md-3 col-lg-3 col-sm-push-0 col-md-push-0{% endblock %}
 {% block footer_class %}row{% endblock %}
 
-{% block body %}{% spaceless %}{% analytical_body_top %}
-	{% cms_toolbar %}
-{% endspaceless %}{{ block.super }}{% analytical_body_bottom %}{% endblock body %}
+{% block body %}{% analytical_body_top %}{{ block.super }}{% analytical_body_bottom %}{% endblock body %}
 
 {% block menu %}{% spaceless %}
 	{% include 'profile_dropdown.html' %}

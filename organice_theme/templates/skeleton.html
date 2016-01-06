@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% load staticfiles sekizai_tags %}{% spaceless %}{% block sekizai %}{% endblock %}{% endspaceless %}
+<!DOCTYPE html>{% load cms_tags staticfiles sekizai_tags %}{% spaceless %}{% block sekizai %}{% endblock %}{% endspaceless %}
 <html>
 <head>{% block head %}{% block meta %}
 	<meta charset="utf-8">
@@ -12,7 +12,7 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'apple-touch-icon-114x114.png' %}">
 	{% endblock favicon %}{% block css %}
 	{% endblock css %}{% endblock head %}{% render_block "css" %}</head>
-<body>{% block body %}
+<body>{% cms_toolbar %}{% block body %}
 	<div id="header" class="{% block header_class %}{% endblock %}">{% block header %}{% endblock %}</div>
 	<div id="container" class="{% block container_class %}{% endblock %}">{% block container %}
 		<div id="menu" class="{% block menu_class %}{% endblock %}">{% block menu %}{% endblock %}</div>
