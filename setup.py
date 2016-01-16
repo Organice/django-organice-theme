@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2014 Peter Bittner <django@bittner.it>
+# Copyright 2014-2016 Peter Bittner <django@bittner.it>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -36,11 +36,11 @@ ROOT_PATH = os.path.dirname(__file__)
 
 setup(
     name='django-organice-theme',
-    version='0.3.dev1',
+    version='0.3',
     author='Peter Bitter',
     author_email='django@bittner.it',
     url='http://organice.io/themes/',
-    license='Apache License 2.0',
+    license='Apache 2.0',
 
     description='The mother theme of all themes for django-organice.',
     long_description=open(os.path.join(ROOT_PATH, 'README.rst')).read(),
