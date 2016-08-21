@@ -14,9 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from os.path import abspath, dirname, join
 from setuptools import setup, find_packages
-import os
 
+import organice_theme as package
 
 CLASSIFIERS = [
     'Development Status :: 3 - Alpha',
@@ -29,25 +30,47 @@ CLASSIFIERS = [
     'Topic :: Office/Business :: Groupware',
 ]
 
-DEPENDENCIES = [
-]
 
-ROOT_PATH = os.path.dirname(__file__)
+def read_file(*pathname):
+    """Read the contents of a file located relative to setup.py"""
+    with open(join(abspath(dirname(__file__)), *pathname)) as thefile:
+        return thefile.read()
+
+
+def replace_last(s, old, new, maxtimes=1):
+    """Replace the last (n) occurence(s) of an expression in a string"""
+    tokens = s.rsplit(old, maxtimes)
+    return new.join(tokens)
+
+
+# Parse requirements.txt for both package (PyPI) and source (VCS) dependencies
+DEPENDENCY_LINKS = []
+INSTALL_REQUIRES = [line for line in read_file('requirements.txt').splitlines()
+                    if line and not line.strip().startswith('#')]
+
+for index, line in enumerate(INSTALL_REQUIRES):
+    if '#egg=' in line:
+        DEPENDENCY_LINKS += [line]
+        pkg_name_version = replace_last(line.split('#egg=')[1], '-', '==')
+        INSTALL_REQUIRES[index] = pkg_name_version
 
 setup(
     name='django-organice-theme',
-    version='0.3',
-    author='Peter Bitter',
-    author_email='django@bittner.it',
-    url='http://organice.io/themes/',
-    license='Apache 2.0',
+    version=package.__version__,
+    author=package.__author__,
+    author_email=package.__author_email__,
+    maintainer=package.__maintainer__,
+    maintainer_email=package.__maintainer_email__,
+    url=package.__url__,
+    license=package.__license__,
 
-    description='The mother theme of all themes for django-organice.',
-    long_description=open(os.path.join(ROOT_PATH, 'README.rst')).read(),
+    description=package.__doc__.strip(),
+    long_description=read_file('README.rst'),
     keywords='organice, theme, django, python',
 
     classifiers=CLASSIFIERS,
-    install_requires=DEPENDENCIES,
+    dependency_links=DEPENDENCY_LINKS,
+    install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,

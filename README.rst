@@ -43,8 +43,8 @@ Download and Contributions
 
 Official repositories: (kept in sync)
 
-#. Bitbucket: https://bitbucket.org/bittner/django-organice-theme
-#. GitHub: https://github.com/bittner/django-organice-theme
+#. Bitbucket: https://bitbucket.org/Organice/django-organice-theme
+#. GitHub: https://github.com/Organice/django-organice-theme
 
 Getting Help
 ============
@@ -71,5 +71,5 @@ Getting Help
 .. _`django-organice-theme-fullpage`: https://pypi.python.org/pypi/django-organice-theme-fullpage
 .. _`let us know by e-mail`: support@organice.io
 .. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
-.. _Bitbucket: https://bitbucket.org/bittner/django-organice-theme/issues
-.. _GitHub: https://github.com/bittner/django-organice-theme/issues
+.. _Bitbucket: https://bitbucket.org/Organice/django-organice-theme/issues
+.. _GitHub: https://github.com/Organice/django-organice-theme/issues
