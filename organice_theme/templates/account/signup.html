@@ -1,14 +1,15 @@
 {% extends "allauth:account/signup.html" %}
 
 {% load i18n %}
-{% load url from future %}
+{% load account socialaccount %}
 
-{% block title %}{% trans "Signup" %}{% endblock %}
+{% block title %}{% trans "Sign Up" %}{% endblock %}
 
 {% block content %}
 <h1>{% trans "Sign Up" %}</h1>
 
-{% if socialaccount.providers %}
+{% get_providers as socialaccount_providers %}
+{% if socialaccount_providers %}
 <p>{% blocktrans with site.name as site_name %}Please sign up with one
 of your existing third party accounts, or create an account using your
 email address and a password.{% endblocktrans %}</p>
@@ -16,7 +17,7 @@ email address and a password.{% endblocktrans %}</p>
 
 <div class="allauth_login_form">
 
-{% if socialaccount.providers %}
+{% if socialaccount_providers %}
 	<ul class="socialaccount_providers">
 		{% include "socialaccount/snippets/provider_list.html" with process="login" %}
 	</ul>
