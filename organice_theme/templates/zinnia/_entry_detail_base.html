@@ -1,53 +1,79 @@
-{% load comments i18n %}
-{% load url from future %}
-<div id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %}">
+{% load i18n zinnia %}
+<article id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %}" itemscope itemtype="http://schema.org/Article">
   {% block entry-header %}
-  <div class="entry-header">
+  <header class="entry-header">
     {% block entry-title %}
-    <h2 class="entry-title">
-      <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
-        {{ object.title }}
-      </a>
+    <h2 class="entry-title" itemprop="name">
+      <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark" itemprop="url">{{ object.title|widont }}</a>
     </h2>
-    {% endblock %}
-  </div>
-  {% endblock %}
+    {% endblock entry-title %}
+  </header>
+  {% endblock entry-header %}
 
   {% block entry-body %}
   <div class="entry-body">
+    {% block entry-word-count %}
+    <meta itemprop="wordCount" content="{{ object.word_count }}" />
+    {% endblock entry-word-count %}
+
     {% block entry-image %}
     {% if object.image %}
     <div class="entry-image">
-      <p>
-        {% if continue_reading %}
-        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
-          {% endif %}
-          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left img-responsive" />
-          {% if continue_reading %}
-        </a>
+      {% if continue_reading %}
+      <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
         {% endif %}
-      </p>
+        <figure itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+          <img src="{{ object.image.url }}" alt="{{ object.image_caption|default:object.title }}" itemprop="contentUrl" />
+          {% if object.image_caption %}
+          <figcaption itemprop="caption">{{ object.image_caption }}</figcaption>
+          {% endif %}
+        </figure>
+        {% if continue_reading %}
+      </a>
+      {% endif %}
     </div>
     {% endif %}
-    {% endblock %}
+    {% endblock entry-image %}
+
+    {% block entry-lead %}
+    {% if not continue_reading and object.lead %}
+    <div class="entry-summary" itemprop="headline">
+      {{ object.html_lead|safe }}
+    </div>
+    {% endif %}
+    {% endblock entry-lead %}
+
     {% block entry-content %}
-    <div class="entry-content">
+    <div class="entry-content" itemprop="articleBody">
       {{ object_content|safe }}
     </div>
-    {% endblock %}
+    {% endblock entry-content %}
+
     {% block continue-reading %}
-    {% if continue_reading %}
+    {% if continue_reading and object_content.has_more %}
     <p class="continue-reading">
       <a href="{{ object.get_absolute_url }}"
-         title="{% blocktrans with object=object.title %}Continue reading {{ object }}{% endblocktrans %}"
-         rel="bookmark">
+         title="{% blocktrans with object=object.title percent=object_content.remaining_percent|floatformat:0 %}{{ percent }}% of {{ object }} still remains to read.{% endblocktrans %}"
+         rel="bookmark" itemprop="url">
         {% trans "Continue reading" %}
       </a>
     </p>
     {% endif %}
-    {% endblock %}
+    {% endblock continue-reading %}
   </div>
-  {% endblock %}
+  {% endblock entry-body %}
 
-  {% block entry-footer %}{% endblock %}
-</div>
+  {% block entry-footer %}
+  <footer class="entry-footer">
+    {% block entry-tags %}
+    <ul class="entry-tags">
+      {% for tag in object.tags_list %}
+      <li><a href="{% url 'zinnia:tag_detail' tag %}"
+         title="{% blocktrans %}Show all entries tagged by {{ tag }}{% endblocktrans %}"
+         rel="tag" itemprop="articleSection">{{ tag }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endblock entry-tags %}
+  </footer>
+  {% endblock entry-footer %}
+</article>

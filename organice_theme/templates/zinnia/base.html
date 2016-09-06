@@ -4,12 +4,12 @@
 {% block breadcrumb %}{% zinnia_breadcrumbs "Blog" %}{% endblock breadcrumb %}
 
 {% block sidebar %}
-<div id="widget-categories" class="widget">
+<aside id="widget-categories" class="widget">
   <h3>{% trans "Categories" %}</h3>
   {% get_categories %}
-</div>
-<div id="widget-tags" class="widget">
+</aside>
+<aside id="widget-tags" class="widget">
   <h3>{% trans "Tags" %}</h3>
   {% get_tag_cloud %}
-</div>
+</aside>
 {% endblock sidebar %}
