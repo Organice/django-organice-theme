@@ -14,7 +14,7 @@
 """
 The mother theme of all themes for django-organice.
 """
-__version__ = '0.4.1'
+__version__ = '0.5.0.dev0'
 
 __author__ = 'Peter Bitter'
 __author_email__ = 'django@bittner.it'

@@ -66,7 +66,7 @@ setup(
 
     description=package.__doc__.strip(),
     long_description=read_file('README.rst'),
-    keywords='organice, theme, django, python',
+    keywords='organice theme django python',
 
     classifiers=CLASSIFIERS,
     dependency_links=DEPENDENCY_LINKS,
